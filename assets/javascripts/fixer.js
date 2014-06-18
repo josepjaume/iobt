@@ -10,6 +10,10 @@
     helpseekerAnsweredYes(data.user);
 
     $("#helpseekers-list ul li .btn-help-seeker").on('click', function(){
+      if(!navigator.getUserMedia){
+        alert("No video support");
+        return;
+      }
       data.user = user;
       owner.trigger('client-fix', data);
     });

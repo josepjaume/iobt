@@ -7,6 +7,8 @@ require 'faker'
 
 require_relative 'lib/pusher'
 
+$current_id = 1
+
 class App < Sinatra::Base
   set :root,       File.dirname(__FILE__) # You must set app root
   set :public_dir, File.dirname(__FILE__) + '/assets'
@@ -18,8 +20,12 @@ class App < Sinatra::Base
     config.sass_dir = 'templates'
   end
 
+  def get_id
+    $current_id += 1
+  end
+
   before do
-    session[:iobt_id] ||= UUID.new.generate
+    session[:iobt_id] ||= get_id
     session[:iobt_name] ||= Faker::Name.name
     @id = session[:iobt_id]
     @name = session[:iobt_name]

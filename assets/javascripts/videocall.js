@@ -1,7 +1,8 @@
 (function(exports){
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-  var peer = new Peer(user.id, {key: 'qvalqpxfa0grpb9', debug: 3});
+  var peer = new Peer(user.id, {key: 'qvalqpxfa0grpb9', debug: 3, config: {
+    'iceServers': [{ url: 'stun:stun.l.google.com:19302' }]}});
 
   var createStream = function(callback){
     navigator.getUserMedia({audio: true, video: true}, function(stream){
