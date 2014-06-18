@@ -3,6 +3,7 @@ require 'sass'
 require 'compass'
 require 'json'
 require 'uuid'
+require 'faker'
 
 require_relative 'lib/pusher'
 
@@ -19,19 +20,17 @@ class App < Sinatra::Base
 
   before do
     session[:iobt_id] ||= UUID.new.generate
+    session[:iobt_name] ||= Faker::Name.name
     @id = session[:iobt_id]
+    @name = session[:iobt_name]
   end
 
   get '/' do
-    erb :index
+    erb :fixer
   end
 
   get '/owner' do
     erb :owner
-  end
-
-  get '/fixer' do
-    erb :fixer
   end
 
   get '/appliance' do
@@ -41,6 +40,15 @@ class App < Sinatra::Base
   get '/broken' do
     Pusher['presence-owner'].trigger('broken', {
       appliance: 'Washing Machine'
+    })
+  end
+
+  get '/fixed' do
+    Pusher['presence-all'].trigger('fixed', {
+      user: {
+        id: session[:iobt_id],
+        name: session[:iobt_name]
+      }
     })
   end
 

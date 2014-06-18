@@ -8,6 +8,7 @@ gem 'pusher'
 gem 'compass'
 gem 'json'
 gem 'uuid'
+gem 'faker'
 
 group :development do
   gem 'foreman'

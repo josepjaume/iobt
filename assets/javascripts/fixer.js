@@ -7,20 +7,11 @@
   });
 
   var notifyFixRequest = function(data){
-    var accept = $("<a href='#'>").html("Accept").on('click', function(){
-      data.userId = userId;
+    helpseekerAnsweredYes(data.user);
+
+    $("#helpseekers-list ul li .btn-help-seeker").on('click', function(){
+      data.user = user;
       owner.trigger('client-fix', data);
-      return false;
     });
-
-    var reject = $("<a href='#'>").html("Reject").on('click', function(){
-      owner.trigger('client-fix', data);
-      return false;
-    });
-
-    var notification = $("<li>" + data.appliance + " needs to be fixed</li>");
-    notification.append(accept).append(reject);
-
-    $("#notifications").append(notification);
   }
 })();

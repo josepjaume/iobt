@@ -1,7 +1,7 @@
 (function(exports){
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-  var peer = new Peer(userId, {key: 'qvalqpxfa0grpb9', debug: 3});
+  var peer = new Peer(user.id, {key: 'qvalqpxfa0grpb9', debug: 3});
 
   var createStream = function(callback){
     navigator.getUserMedia({audio: true, video: true}, function(stream){
@@ -14,7 +14,6 @@
   }
 
   peer.on('call', function(call){
-    debugger;
     createStream(function(stream){
       call.answer(stream);
       receiveCall(call);
@@ -31,8 +30,9 @@
         top: '0px',
         left: '0px',
         width: '100%',
-        bottom: '100%',
-        backgroundColor: '#000'
+        height: '100%',
+        backgroundColor: '#000',
+        zIndex: '100'
       });
       $("body").append(video);
     });
@@ -41,7 +41,6 @@
   var call = function(id){
     createStream(function(stream){
       var call = peer.call(id, stream);
-      debugger;
       receiveCall(call);
     });
   }

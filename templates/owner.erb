@@ -1,5 +1,60 @@
 <script style="text/javascript" src="javascripts/videocall.js"></script>
 <script style="text/javascript" src="javascripts/owner.js"></script>
-<h1>Owner</h1>
-<ul id="notifications">
-</ul>
+		<div class="container" id="owner-interface">
+			<div class="row" style="
+									margin-top: 300px;
+									">
+				<div class="col-md-12" style="
+											  text-align: center;
+											  ">
+					<h1>Hi Josep! Your washing machine has broken down. What do you want to do?</h1>
+				</div>
+			</div>
+			<div id="action-buttons" class="row" style="
+														margin-top: 150px;
+														">
+				<div class="col-md-offset-1 col-md-3">
+					<button type="button" class="btn btn-default" style="
+																										   width: 100%;
+																										   font-size: 26px;
+																										   ">Learn how to fix it yourself</button>
+				</div>
+				<div id="fix-button" class="col-md-3">
+					<button type="button" class="btn btn-default" style="
+																		 width: 100%;
+																		 font-size: 26px;
+																		 " id="find-fixer">Find a Fixer</button>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default" style="
+																		 width: 100%;
+																		 font-size: 26px;
+																		 ">Give it away</button></div>
+				<div class="col-md-3" style="
+											 margin-top: 25px;
+											 font-size: 16px;
+											 color: blue;
+											 ">
+					<button type="button" class="btn btn-default" style="
+																		 width: 100%;
+																		 font-size: 16px;
+																		 border-color: transparent;
+																		 text-decoration: underline;
+																		 color: blue;
+																		 ">Not now</button></div>
+			</div>
+
+			<div id="progress-bar" class="row" style="margin-top: 150px; display: none;">
+				<div class="col-md-offset-12" style="text-align: center">
+					<h2>Waiting for answers...</h2>
+				</div>
+			</div>
+
+			<div id="fixers-list" class="row" style="margin-top: 150px;">
+				<div class="col-md-offset-6 col-md-2">
+					<ul class="list-group">
+					</ul>
+				</div>
+			</div>
+
+		</div>

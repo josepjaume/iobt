@@ -1,5 +1,54 @@
 <script style="text/javascript" src="javascripts/videocall.js"></script>
 <script style="text/javascript" src="javascripts/fixer.js"></script>
-<h1>Fixer</h1>
-<ul id="notifications">
-</ul>
+
+		<div class="container">
+			<div class="row" style="margin-top: 100px;">
+				<div class="col-md-12" style="text-align: center;">
+					<h1>Internet of broken things</h1>
+				</div>
+			</div>
+			<div id="action-buttons" class="row" style="
+														margin-top: 150px;
+														">
+				<div class="col-md-offset-1 col-md-3">
+					<button type="button" class="btn btn-default" style="
+																										   width: 100%;
+																										   font-size: 26px;
+																										   ">Learn</button>
+				</div>
+				<div id="fix-button" class="col-md-3">
+					<button type="button" class="btn btn-default" style="
+																		 width: 100%;
+																		 font-size: 26px;
+																		 ">Fix</button>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default" style="
+																		 width: 100%;
+																		 font-size: 26px;
+																		 ">Give away</button>
+				</div>
+			</div>
+
+			<div id="progress-bar" class="row" style="margin-top: 150px; display: none;">
+				<div class="col-md-offset-12" style="text-align: center">
+					<h2>Waiting for requests...</h2>
+				</div>
+			</div>
+
+			<div id="helpseekers-list" class="row" style="margin-top: 150px;">
+
+				<div class="col-md-12" style="
+											  /* margin-top: 50px; */
+											  ">
+					<!-- <h2 style=" -->
+					<!-- 		   margin-bottom: 30px; -->
+					<!-- 		   ">People in need of repair help in your neighborhood</h2> -->
+					<ul class="list-group">
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="js/fixers.js"></script>

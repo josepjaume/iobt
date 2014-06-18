@@ -2,6 +2,10 @@
   var channel = pusher.subscribe('presence-owner');
   var fixer = pusher.subscribe('presence-fixer');
 
+  $(function(){
+    $("#owner-interface").css('opacity', 0);
+  });
+
   channel.bind('broken', function(data) {
     notifyBroken(data);
   });
@@ -19,31 +23,19 @@
   }
 
   var notifyBroken = function(data){
-    var accept = $("<a href='#'>").html("Fix").on('click', function(){
-      optionsFor(data.appliance).html("Notifying...");
+    $("#owner-interface").animate({opacity: '1'});
+
+    $("#find-fixer").on('click', function(){
+      data.user = user;
       fixer.trigger('client-fix', data);
-      return false;
     });
-
-    var reject = $("<a href='#'>").html("Reject").on('click', function(){
-      return false;
-    });
-
-    var notification = $("<li>" + data.appliance + " broken!</li>");
-    var options = $("<span class='options'></span>");
-    options.append(accept).append(reject);
-    notification.append(options);
-    notification.attr('data-appliance', data.appliance);
-
-    $("#notifications").append(notification);
   }
 
   var notifyRequestAccepted = function(data){
-    var notification = notificationFor(data.appliance);
-    var videoCall = $("<a href='#'>").html("Video Call");
-    videoCall.on('click', function(){
-      call(data.userId);
+    fixerAnsweredYes(data.user);
+
+    $(".list-group-item").on('click', function(){
+      call(data.user.id);
     });
-    $(".options", notification).html(videoCall);
   }
 })();
