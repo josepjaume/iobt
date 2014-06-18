@@ -15,6 +15,10 @@ class App < Sinatra::Base
     erb :owner
   end
 
+  get '/appliance' do
+    erb :appliance
+  end
+
   get '/broken' do
     Pusher['owner'].trigger('broken', {
       appliance: 'Washing Machine'
